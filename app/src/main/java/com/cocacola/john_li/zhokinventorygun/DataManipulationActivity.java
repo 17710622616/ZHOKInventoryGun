@@ -85,6 +85,15 @@ public class DataManipulationActivity extends AppCompatActivity implements View.
                         mProductDAO.clearTable();
                         callNetUpdtaeData();
                         break;
+                    case 2:
+                        dialog = new ProgressDialog(DataManipulationActivity.this);
+                        dialog.setTitle("提示");
+                        dialog.setMessage("正在清空所有盤點數......");
+                        dialog.setCancelable(false);
+                        dialog.show();
+                        mNormalDCSockTakeDAO.clearTable();
+                        mBadDCSockTakeDAO.clearTable();
+                        break;
                 }
             }
         });
@@ -103,6 +112,7 @@ public class DataManipulationActivity extends AppCompatActivity implements View.
         List<String> list = new ArrayList();
         list.add("数据上传");
         list.add("数据下载");
+        list.add("清空盤點數");
         return list;
     }
 
